@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+      function computerPlay(){
+          let choices = ["Rock", "Paper", "Scissors"];
+          let the_choice = choices[Math.floor(Math.random()*choices.length)];
+          return the_choice;
+      }
+          
+
+      function playRound(playerSelection, computerSelection){  
+          
+          if ((playerSelection == "rock") && (computerSelection == "scissors")){
+             playerWins++;
+             roundPlayed++;
+             console.log("You Won! Your score is "+playerWins+" and the computer's score is "+computerWins);
+          } else if ((playerSelection == "paper") && (computerSelection == "rock")){
+             playerWins++;
+             roundPlayed++;
+             console.log("You Won! Your score is "+playerWins+" and the computer's score is "+computerWins);
+          } else if ((playerSelection == "scissors") && (computerSelection == "paper")){
+             playerWins++;
+             roundPlayed++;
+             console.log("You Won! Your score is "+playerWins+" and the computer's score is "+computerWins);
+          } else if (playerSelection == computerSelection) {
+              console.log("It's a draw! Your score is "+playerWins+" and the computer's score is "+computerWins);
+          } else {
+              computerWins++;
+              roundPlayed++;
+              console.log("You Lost! Your score is "+playerWins+" and the computer's score is "+computerWins);
+          }
+      }
+
+      let playerWins = 0;
+      let computerWins = 0;
+      let roundPlayed = 0;
+      let selection = true;
+      while (roundPlayed < 5){
+        computerSelected = computerPlay().toLowerCase();
+        console.log(computerSelected);
+        playerSelected = prompt("What do you choose?","rock?, paper?, scissors?");
+        if (playerSelected != null) {
+            playerSelected = playerSelected.toLowerCase();
+        } else {
+            alert("you're a quitter!")
+            break;
+        }
+        if (playerSelected == "rock" || playerSelected == "paper" || playerSelected == "scissors") {
+          playRound(playerSelected, computerSelected);
+        }else {
+          selection = false;
+        }
+        
+        while (selection == false){
+        playerSelected = prompt("You should choose one of these:","rock?, paper?, scissors?");
+        if (playerSelected != null){
+            playerSelected = playerSelected.toLowerCase();
+        } else {
+            alert("you're a quitter!")
+            break;
+        }
+        if (playerSelected == "rock" || playerSelected == "paper" || playerSelected == "scissors") {
+        selection = true;
+         playRound(playerSelected, computerSelected);
+        }
+        }
+        
+      }
+      
+
+
+</script>
+
+</body>
+</html>
