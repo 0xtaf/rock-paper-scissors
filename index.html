@@ -3,78 +3,35 @@
 <head>
   <title>Rock Paper Scissors</title>
   <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script>
-      function computerPlay(){
-          let choices = ["Rock", "Paper", "Scissors"];
-          let the_choice = choices[Math.floor(Math.random()*choices.length)];
-          return the_choice;
-      }
-          
+<div class="buttons">
+  <button id="1" class="btn1"></button>
+  <button id="2" class="btn2"></button>
+  <button id="3" class="btn3"></button>  
+</div>
+  <button id="4" class="btn4">New Game!</button>
+<div class="opponents">
+  <div class="opponent1">
+    <div class="opponent1-name">YOU</div>
+    <div class="opponent1-imgClass1"></div>    
+    <div class="opponent1-scoreboard"></div>
+  </div>
+  <div class="opponent2-name">CPU</div>
+  <div class="opponent2">
+    
+    <div class="opponent2-imgClass1"></div>
+    <div class="opponent2-scoreboard"></div>
+  </div>
+</div>
 
-      function playRound(playerSelection, computerSelection){  
-          
-          if ((playerSelection == "rock") && (computerSelection == "scissors")){
-             playerWins++;
-             roundPlayed++;
-             console.log("You Won! Your score is "+playerWins+" and the computer's score is "+computerWins);
-          } else if ((playerSelection == "paper") && (computerSelection == "rock")){
-             playerWins++;
-             roundPlayed++;
-             console.log("You Won! Your score is "+playerWins+" and the computer's score is "+computerWins);
-          } else if ((playerSelection == "scissors") && (computerSelection == "paper")){
-             playerWins++;
-             roundPlayed++;
-             console.log("You Won! Your score is "+playerWins+" and the computer's score is "+computerWins);
-          } else if (playerSelection == computerSelection) {
-              console.log("It's a draw! Your score is "+playerWins+" and the computer's score is "+computerWins);
-          } else {
-              computerWins++;
-              roundPlayed++;
-              console.log("You Lost! Your score is "+playerWins+" and the computer's score is "+computerWins);
-          }
-      }
-
-      let playerWins = 0;
-      let computerWins = 0;
-      let roundPlayed = 0;
-      let selection = true;
-      while (roundPlayed < 5){
-        computerSelected = computerPlay().toLowerCase();
-        console.log(computerSelected);
-        playerSelected = prompt("What do you choose?","rock?, paper?, scissors?");
-        if (playerSelected != null) {
-            playerSelected = playerSelected.toLowerCase();
-        } else {
-            alert("you're a quitter!")
-            break;
-        }
-        if (playerSelected == "rock" || playerSelected == "paper" || playerSelected == "scissors") {
-          playRound(playerSelected, computerSelected);
-        }else {
-          selection = false;
-        }
-        
-        while (selection == false){
-        playerSelected = prompt("You should choose one of these:","rock?, paper?, scissors?");
-        if (playerSelected != null){
-            playerSelected = playerSelected.toLowerCase();
-        } else {
-            alert("you're a quitter!")
-            break;
-        }
-        if (playerSelected == "rock" || playerSelected == "paper" || playerSelected == "scissors") {
-        selection = true;
-         playRound(playerSelected, computerSelected);
-        }
-        }
-        
-      }
-      
+<div id="playerChoice"></div>
+<div id="computerChoice"></div>
+<div id="gameresult"></div>
 
 
-</script>
+<script src="gameplay.js"></script>
 
 </body>
 </html>
